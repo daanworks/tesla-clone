@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import {useSelector} from "react-redux";
@@ -38,13 +38,16 @@ const Header = () => {
           <li><a href='#'>Cybertruck</a></li>
           <li><a href='#'>Roadster</a></li>
       </BurgerNav>
+      {
+        burgerStatus && (
+          <DarkMode/>
+        )
+      }
     </Container>
   )
 }
 
 export default Header;
-
-
 
 const Container = styled.div`
   min-height: 60px;
@@ -120,4 +123,18 @@ const CustomClose = styled(CloseIcon)`
 const ClosedWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
+`
+
+const DarkMode = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.2s;
+  @keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
 `
