@@ -40,7 +40,7 @@ const Header = () => {
       </BurgerNav>
       {
         burgerStatus && (
-          <DarkMode/>
+          <DarkMode onClick={() => {setBurgerStatus(false)}} />
         )
       }
     </Container>
